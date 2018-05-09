@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://net.scilingo.tictactoe/move"
+            elementFormDefault="qualified">
+    <xsd:complexType name="MoveType">
+        <xsd:annotation>
+            <xsd:documentation>Defines a TicTacToe move</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="GameId" type="xsd:int">
+                <xsd:annotation>
+                    <xsd:documentation>The Game Instance Identifier</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="UpperLeft" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Upper Left Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="UpperMiddle" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Upper Middle Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="UpperRight" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Upper Right Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="MiddleLeft" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Middle Left Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="MiddleMiddle" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Center Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="MiddleRight" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Middle Right Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="LowerLeft" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Lower Left Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="LowerMiddle" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Lower Middle Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="LowerRight" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>The Value Of The Lower Right Cell</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
