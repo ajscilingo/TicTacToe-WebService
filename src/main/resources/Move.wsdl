@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://tictactoe.scilingo.net/"
+                  xmlns:mv="http://tictactoe.scilingo.net/move/"
+                  targetNamespace="http://tictactoe.scilingo.net/">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    xmlns="http://tictactoe.scilingo.net/"
+                    elementFormDefault="qualified"
+                    targetNamespace="http://tictactoe.scilingo.net/move/"
+                    xmlns:tns="http://tictactoe.scilingo.net/">
+            <xsd:import namespace="http://tictactoe.scilingo.net/move/" schemaLocation="Move.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="RecordMoveRequest">
+        <wsdl:part element="mv:RecordMoveRequest" name="RecordMoveRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RecordMoveResponse">
+        <wsdl:part element="mv:RecordMoveResponse" name="RecordMoveResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="movePort">
+        <wsdl:operation name="RecordMove">
+            <wsdl:input message="tns:RecordMoveRequest" name="RecordMoveRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:RecordMoveResponse" name="RecordMoveResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="moveSoap11" type="tns:movePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="RecordMove">
+            <wsdl:input name="RecordMoveRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RecordMoveResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ticTacToeService">
+        <wsdl:port binding="tns:moveSoap11" name="moveSoap11">
+            <soap:address location="http://localhost:9091/tictactoeservice/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
