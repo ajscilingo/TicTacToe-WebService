@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://tictactoe.scilingo.net/move/"
             targetNamespace="http://tictactoe.scilingo.net/move/"
             elementFormDefault="qualified">
-    <xsd:element name="RecordMoveRequest">
-        <xsd:annotation>
-            <xsd:documentation>Request to record TicTacToe move</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="MoveParameter" type="MoveType"></xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="RecordMoveResponse">
-        <xsd:annotation>
-            <xsd:documentation>Response</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="Response" type="MoveResponse"></xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
     <xsd:complexType name="MoveType">
         <xsd:annotation>
             <xsd:documentation>Defines a TicTacToe move</xsd:documentation>
@@ -129,4 +110,24 @@
             <xsd:element name="Response" type="xsd:string"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    <xsd:element name="RecordMoveRequest">
+        <xsd:annotation>
+            <xsd:documentation>Request to record TicTacToe move</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MoveParameter" type="MoveType"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecordMoveResponse">
+        <xsd:annotation>
+            <xsd:documentation>Response</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Response" type="MoveResponse"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>
