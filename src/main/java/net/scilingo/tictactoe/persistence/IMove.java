@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public interface IMove {
 
-    Long getGameId();
+    IGame getGame();
     Character getUpperLeft();
     Character getUpperMiddle();
     Character getUpperRight();
@@ -16,7 +16,7 @@ public interface IMove {
     Character getLowerRight();
     Calendar getLastUpdated();
 
-    void setGameId(Long gameId);
+    void setGame(IGame game);
     void setUpperLeft(Character upperLeft);
     void setUpperMiddle(Character upperMiddle);
     void setUpperRight(Character upperRight);

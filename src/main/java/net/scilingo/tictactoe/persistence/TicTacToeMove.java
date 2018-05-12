@@ -9,7 +9,7 @@ import java.util.Calendar;
 public class TicTacToeMove implements IMove, Serializable {
 
     @Column(name = "game_id")
-    private Long gameId;
+    private IGame game;
 
     @Column(name = "upper_left")
     private Character upperLeft;
@@ -42,9 +42,14 @@ public class TicTacToeMove implements IMove, Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar lastUpdated;
 
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "moveData")
+    @JoinColumn( )
+    private TicTacToeGame gameData;
+
+
     @Override
-    public Long getGameId() {
-        return this.gameId;
+    public IGame getGame() {
+        return this.game;
     }
 
     @Override
@@ -98,9 +103,10 @@ public class TicTacToeMove implements IMove, Serializable {
     }
 
     @Override
-    public void setGameId(Long gameId) {
-        this.gameId = gameId;
+    public void setGame(IGame game){
+        this.game = game;
     }
+
 
     @Override
     public void setUpperLeft(Character upperLeft) {
@@ -124,31 +130,31 @@ public class TicTacToeMove implements IMove, Serializable {
 
     @Override
     public void setMiddleMiddle(Character middleMiddle) {
-
+        this.middleMiddle = middleMiddle;
     }
 
     @Override
     public void setMiddleRight(Character middleRight) {
-
+        this.middleRight = middleRight;
     }
 
     @Override
     public void setLowerLeft(Character lowerLeft) {
-
+        this.lowerLeft = lowerLeft;
     }
 
     @Override
     public void setLowerMiddle(Character lowerMiddle) {
-
+        this.lowerMiddle = lowerMiddle;
     }
 
     @Override
     public void setLowerRight(Character lowerRight) {
-
+        this.lowerRight = lowerRight;
     }
 
     @Override
     public void setLastUpdated(Calendar lastUpdated) {
-
+        this.lastUpdated = lastUpdated;
     }
 }
