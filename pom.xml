@@ -11,6 +11,7 @@
     <properties>
         <spring.ws.version>3.0.1.RELEASE</spring.ws.version>
         <apache.cxf.version>3.2.4</apache.cxf.version>
+        <hibernate.version>5.2.17.Final</hibernate.version>
     </properties>
     <build>
         <finalName>tictactoe-ws</finalName>
@@ -56,11 +57,17 @@
             <artifactId>cxf-rt-transports-http</artifactId>
             <version>${apache.cxf.version}</version>
         </dependency>
-        <!-- EclipseLink JPA -->
+        <!-- Hibernate JPA -->
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.7.0</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <!-- MySQL JDBC Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
         </dependency>
     </dependencies>
 </project>

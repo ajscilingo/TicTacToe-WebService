@@ -16,6 +16,6 @@ public class TicTacToeMoveService implements MovePort {
     @Override
     public RecordMoveResponse recordMove(RecordMoveRequest recordMoveRequest) {
         RecordMoveResponse response = new RecordMoveResponse();
-
+        return response;
     }
 }

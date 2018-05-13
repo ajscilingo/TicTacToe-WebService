@@ -1,73 +1,70 @@
 package net.scilingo.tictactoe.persistence;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
-public class TicTacToeGame implements IGame, Serializable {
-
+@Entity
+@Table(name = "GAME", schema = "tictactoe", catalog = "")
+public class TicTacToeGame {
+    private long id;
+    private byte winnerPlayer;
+    private String winnerSymbol;
+    private Byte gameOver;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
-
-    @Column(name = "winner_player")
-    private Integer winnerPlayer;
-
-    @Column(name = "winner_symbol")
-    private Character winnerSymbol;
-
-    @Column(name = "game_over")
-    private Boolean gameOver;
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "game")
-    private TicTacToeMove moveData;
-
-    @Override
-    public Long getId() {
-        return this.id;
+    public long getId() {
+        return id;
     }
 
-    @Override
-    public Integer getWinnerPlayer() {
-        return this.winnerPlayer;
-    }
-
-    @Override
-    public Character getWinnerSymbol() {
-        return this.winnerSymbol;
-    }
-
-    public TicTacToeMove getMoveData() {
-        return moveData;
-    }
-
-    @Override
-    public Boolean getGameOver() {
-        return this.gameOver;
-    }
-
-    @Override
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Override
-    public void setWinnerPlayer(Integer winnerPlayer) {
+    @Basic
+    @Column(name = "winner_player")
+    public byte getWinnerPlayer() {
+        return winnerPlayer;
+    }
+
+    public void setWinnerPlayer(byte winnerPlayer) {
         this.winnerPlayer = winnerPlayer;
     }
 
-    @Override
-    public void setWinnerSymbol(Character winnerSymbol) {
+    @Basic
+    @Column(name = "winner_symbol")
+    public String getWinnerSymbol() {
+        return winnerSymbol;
+    }
+
+    public void setWinnerSymbol(String winnerSymbol) {
         this.winnerSymbol = winnerSymbol;
     }
 
-    public void setMoveData(TicTacToeMove moveData) {
-        this.moveData = moveData;
+    @Basic
+    @Column(name = "game_over")
+    public Byte getGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(Byte gameOver) {
+        this.gameOver = gameOver;
     }
 
     @Override
-    public void setGameOver(Boolean gameOver) {
-        this.gameOver = gameOver;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TicTacToeGame that = (TicTacToeGame) o;
+        return id == that.id &&
+                winnerPlayer == that.winnerPlayer &&
+                Objects.equals(winnerSymbol, that.winnerSymbol) &&
+                Objects.equals(gameOver, that.gameOver);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, winnerPlayer, winnerSymbol, gameOver);
     }
 }

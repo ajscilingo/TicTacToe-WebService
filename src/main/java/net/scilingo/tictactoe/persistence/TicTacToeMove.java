@@ -1,160 +1,157 @@
 package net.scilingo.tictactoe.persistence;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Calendar;
+import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "MOVE")
-public class TicTacToeMove implements IMove, Serializable {
+@Table(name = "MOVE", schema = "tictactoe")
+public class TicTacToeMove {
 
-    @Column(name = "game_id")
-    private IGame game;
-
-    @Column(name = "upper_left")
-    private Character upperLeft;
-
-    @Column(name = "upper_middle")
-    private Character upperMiddle;
-
-    @Column(name = "upper_right")
-    private Character upperRight;
-
-    @Column(name = "middle_left")
-    private Character middleLeft;
-
-    @Column(name = "middle_middle")
-    private Character middleMiddle;
-
-    @Column(name = "middle_right")
-    private Character middleRight;
-
-    @Column(name = "lower_left")
-    private Character lowerLeft;
-
-    @Column(name = "lower_middle")
-    private Character lowerMiddle;
-
-    @Column(name = "lower_right")
-    private Character lowerRight;
-
-    @Column(name = "last_updated", updatable = false, insertable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar lastUpdated;
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "moveData")
-    @JoinColumn( )
-    private TicTacToeGame gameData;
+    private TicTacToeGame game;
+    private String upperLeft;
+    private String upperMiddle;
+    private String upperRight;
+    private String middleLeft;
+    private String middleMiddle;
+    private String middleRight;
+    private String lowerLeft;
+    private String lowerMiddle;
+    private String lowerRight;
+    private Timestamp lastUpdated;
 
 
-    @Override
-    public IGame getGame() {
-        return this.game;
+    @OneToOne(targetEntity = TicTacToeGame.class, optional = false, orphanRemoval = true)
+    public TicTacToeGame getGame() {
+        return game;
     }
 
-    @Override
-    public Character getUpperLeft() {
-        return this.upperLeft;
-    }
-
-    @Override
-    public Character getUpperMiddle() {
-        return this.upperMiddle;
-    }
-
-    @Override
-    public Character getUpperRight() {
-        return this.upperRight;
-    }
-
-    @Override
-    public Character getMiddleLeft() {
-        return this.middleLeft;
-    }
-
-    @Override
-    public Character getMiddleMiddle() {
-        return this.middleMiddle;
-    }
-
-    @Override
-    public Character getMiddleRight() {
-        return this.middleRight;
-    }
-
-    @Override
-    public Character getLowerLeft() {
-        return this.lowerLeft;
-    }
-
-    @Override
-    public Character getLowerMiddle() {
-        return this.lowerMiddle;
-    }
-
-    @Override
-    public Character getLowerRight() {
-        return this.lowerRight;
-    }
-
-    @Override
-    public Calendar getLastUpdated() {
-        return this.getLastUpdated();
-    }
-
-    @Override
-    public void setGame(IGame game){
+    public void setGame(TicTacToeGame game){
         this.game = game;
     }
 
+    @Basic
+    @Column(name = "upper_left")
+    public String getUpperLeft() {
+        return upperLeft;
+    }
 
-    @Override
-    public void setUpperLeft(Character upperLeft) {
+    public void setUpperLeft(String upperLeft) {
         this.upperLeft = upperLeft;
     }
 
-    @Override
-    public void setUpperMiddle(Character upperMiddle) {
+    @Basic
+    @Column(name = "upper_middle")
+    public String getUpperMiddle() {
+        return upperMiddle;
+    }
+
+    public void setUpperMiddle(String upperMiddle) {
         this.upperMiddle = upperMiddle;
     }
 
-    @Override
-    public void setUpperRight(Character upperRight) {
+    @Basic
+    @Column(name = "upper_right")
+    public String getUpperRight() {
+        return upperRight;
+    }
+
+    public void setUpperRight(String upperRight) {
         this.upperRight = upperRight;
     }
 
-    @Override
-    public void setMiddleLeft(Character middleLeft) {
+    @Basic
+    @Column(name = "middle_left")
+    public String getMiddleLeft() {
+        return middleLeft;
+    }
+
+    public void setMiddleLeft(String middleLeft) {
         this.middleLeft = middleLeft;
     }
 
-    @Override
-    public void setMiddleMiddle(Character middleMiddle) {
+    @Basic
+    @Column(name = "middle_middle")
+    public String getMiddleMiddle() {
+        return middleMiddle;
+    }
+
+    public void setMiddleMiddle(String middleMiddle) {
         this.middleMiddle = middleMiddle;
     }
 
-    @Override
-    public void setMiddleRight(Character middleRight) {
+    @Basic
+    @Column(name = "middle_right")
+    public String getMiddleRight() {
+        return middleRight;
+    }
+
+    public void setMiddleRight(String middleRight) {
         this.middleRight = middleRight;
     }
 
-    @Override
-    public void setLowerLeft(Character lowerLeft) {
+    @Basic
+    @Column(name = "lower_left")
+    public String getLowerLeft() {
+        return lowerLeft;
+    }
+
+    public void setLowerLeft(String lowerLeft) {
         this.lowerLeft = lowerLeft;
     }
 
-    @Override
-    public void setLowerMiddle(Character lowerMiddle) {
+    @Basic
+    @Column(name = "lower_middle")
+    public String getLowerMiddle() {
+        return lowerMiddle;
+    }
+
+    public void setLowerMiddle(String lowerMiddle) {
         this.lowerMiddle = lowerMiddle;
     }
 
-    @Override
-    public void setLowerRight(Character lowerRight) {
+    @Basic
+    @Column(name = "lower_right")
+    public String getLowerRight() {
+        return lowerRight;
+    }
+
+    public void setLowerRight(String lowerRight) {
         this.lowerRight = lowerRight;
     }
 
-    @Override
-    public void setLastUpdated(Calendar lastUpdated) {
+    @Id
+    @Column(name = "last_updated")
+    public Timestamp getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Timestamp lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TicTacToeMove that = (TicTacToeMove) o;
+        return Objects.equals(upperLeft, that.upperLeft) &&
+                Objects.equals(upperMiddle, that.upperMiddle) &&
+                Objects.equals(upperRight, that.upperRight) &&
+                Objects.equals(middleLeft, that.middleLeft) &&
+                Objects.equals(middleMiddle, that.middleMiddle) &&
+                Objects.equals(middleRight, that.middleRight) &&
+                Objects.equals(lowerLeft, that.lowerLeft) &&
+                Objects.equals(lowerMiddle, that.lowerMiddle) &&
+                Objects.equals(lowerRight, that.lowerRight) &&
+                Objects.equals(lastUpdated, that.lastUpdated) &&
+                Objects.equals(game, that.game);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(upperLeft, upperMiddle, upperRight, middleLeft, middleMiddle, middleRight, lowerLeft, lowerMiddle, lowerRight, lastUpdated, game);
     }
 }
