@@ -1,7 +1,10 @@
 
 package net.scilingo.tictactoe.service.contract;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -21,6 +24,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _NewGameRequest_QNAME = new QName("http://tictactoe.scilingo.net/move/", "NewGameRequest");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: net.scilingo.tictactoe.service.contract
@@ -46,6 +50,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Void }
+     * 
+     */
+    public Void createVoid() {
+        return new Void();
+    }
+
+    /**
+     * Create an instance of {@link NewGameResponse }
+     * 
+     */
+    public NewGameResponse createNewGameResponse() {
+        return new NewGameResponse();
+    }
+
+    /**
+     * Create an instance of {@link GameResponse }
+     * 
+     */
+    public GameResponse createGameResponse() {
+        return new GameResponse();
+    }
+
+    /**
      * Create an instance of {@link RecordMoveRequest }
      * 
      */
@@ -59,6 +87,23 @@ public class ObjectFactory {
      */
     public MoveType createMoveType() {
         return new MoveType();
+    }
+
+    /**
+     * Create an instance of {@link GameType }
+     * 
+     */
+    public GameType createGameType() {
+        return new GameType();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Void }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tictactoe.scilingo.net/move/", name = "NewGameRequest")
+    public JAXBElement<Void> createNewGameRequest(Void value) {
+        return new JAXBElement<Void>(_NewGameRequest_QNAME, Void.class, null, value);
     }
 
 }

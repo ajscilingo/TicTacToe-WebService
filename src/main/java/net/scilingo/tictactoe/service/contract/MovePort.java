@@ -35,4 +35,16 @@ public interface MovePort {
         @WebParam(name = "RecordMoveRequest", targetNamespace = "http://tictactoe.scilingo.net/move/", partName = "RecordMoveRequest")
         RecordMoveRequest recordMoveRequest);
 
+    /**
+     * 
+     * @param newGameRequest
+     * @return
+     *     returns net.scilingo.tictactoe.service.contract.NewGameResponse
+     */
+    @WebMethod(operationName = "NewGame")
+    @WebResult(name = "NewGameResponse", targetNamespace = "http://tictactoe.scilingo.net/move/", partName = "NewGameResponse")
+    public NewGameResponse newGame(
+        @WebParam(name = "NewGameRequest", targetNamespace = "http://tictactoe.scilingo.net/move/", partName = "NewGameRequest")
+        Void newGameRequest);
+
 }

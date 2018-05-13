@@ -8,17 +8,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for MoveResponse complex type.
+ * Game Response
+ * 
+ * <p>Java class for GameResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="MoveResponse">
+ * &lt;complexType name="GameResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="ResponseMessage" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Move" type="{http://tictactoe.scilingo.net/move/}MoveType"/>
+ *         &lt;element name="Game" type="{http://tictactoe.scilingo.net/move/}GameType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,16 +30,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MoveResponse", propOrder = {
+@XmlType(name = "GameResponse", propOrder = {
     "responseMessage",
-    "move"
+    "game"
 })
-public class MoveResponse {
+public class GameResponse {
 
     @XmlElement(name = "ResponseMessage", required = true)
     protected String responseMessage;
-    @XmlElement(name = "Move", required = true)
-    protected MoveType move;
+    @XmlElement(name = "Game", required = true)
+    protected GameType game;
 
     /**
      * Gets the value of the responseMessage property.
@@ -64,27 +66,27 @@ public class MoveResponse {
     }
 
     /**
-     * Gets the value of the move property.
+     * Gets the value of the game property.
      * 
      * @return
      *     possible object is
-     *     {@link MoveType }
+     *     {@link GameType }
      *     
      */
-    public MoveType getMove() {
-        return move;
+    public GameType getGame() {
+        return game;
     }
 
     /**
-     * Sets the value of the move property.
+     * Sets the value of the game property.
      * 
      * @param value
      *     allowed object is
-     *     {@link MoveType }
+     *     {@link GameType }
      *     
      */
-    public void setMove(MoveType value) {
-        this.move = value;
+    public void setGame(GameType value) {
+        this.game = value;
     }
 
 }

@@ -1,3 +1,5 @@
+package net.scilingo.tictactoe;
+
 import net.scilingo.tictactoe.persistence.TicTacToeGame;
 import net.scilingo.tictactoe.persistence.TicTacToeMove;
 import org.hibernate.*;

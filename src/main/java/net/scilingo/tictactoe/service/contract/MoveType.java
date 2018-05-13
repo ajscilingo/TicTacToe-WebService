@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="GameId" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="GameId" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="UpperLeft" minOccurs="0">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -107,7 +107,7 @@ import javax.xml.bind.annotation.XmlType;
 public class MoveType {
 
     @XmlElement(name = "GameId")
-    protected int gameId;
+    protected long gameId;
     @XmlElement(name = "UpperLeft")
     protected String upperLeft;
     @XmlElement(name = "UpperMiddle")
@@ -131,7 +131,7 @@ public class MoveType {
      * Gets the value of the gameId property.
      * 
      */
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
@@ -139,7 +139,7 @@ public class MoveType {
      * Sets the value of the gameId property.
      * 
      */
-    public void setGameId(int value) {
+    public void setGameId(long value) {
         this.gameId = value;
     }
 

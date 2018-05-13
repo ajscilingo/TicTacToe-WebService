@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "GAME", schema = "tictactoe", catalog = "")
+@Table(name = "GAME", schema = "tictactoe")
 public class TicTacToeGame {
     private long id;
     private byte winnerPlayer;
