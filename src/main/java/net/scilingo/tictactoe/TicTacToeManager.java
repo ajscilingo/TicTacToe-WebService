@@ -10,7 +10,7 @@ import javax.persistence.metamodel.EntityType;
 
 import java.util.Map;
 
-public class TicTacToeMoveManager {
+public class TicTacToeManager {
 
     private static final SessionFactory ourSessionFactory;
     private static final Session session;
@@ -27,7 +27,7 @@ public class TicTacToeMoveManager {
         }
     }
 
-    public TicTacToeMoveManager(){
+    public TicTacToeManager(){
 
     }
 
@@ -38,10 +38,16 @@ public class TicTacToeMoveManager {
    public TicTacToeGame startNewGame() {
         Transaction transaction = null;
         TicTacToeGame newGame = null;
+        final byte gameOver = (byte) 0;
+        final byte winnerPlayer = (byte) -1;
+        final String winnerSymbol = "";
         try {
             transaction = session.getTransaction();
             transaction.begin();
             newGame = new TicTacToeGame();
+            newGame.setGameOver(gameOver);
+            newGame.setWinnerPlayer(winnerPlayer);
+            newGame.setWinnerSymbol(winnerSymbol);
         }
         catch (Exception e){
             System.out.println(e.getStackTrace());

@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:sws="http://www.springframework.org/schema/web-services"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services-2.0.xsd">
+       xmlns:content="http://www.springframework.org/schema/context"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <sws:annotation-driven/>
+    <content:component-scan base-package="net.scilingo.tictactoe.service"/>
 
+    <!-- JAX-WS Service Endpoint -->
+    <bean id="ticTacToeServiceImpl" class="net.scilingo.tictactoe.service.impl.TicTacToeServiceImpl" />
+
+    <jaxws:endpoint id="ticTacToeServiceEndpoint"
+                    implementor="#ticTacToeServiceImpl"
+                    address="/tictactoeservice">
+        <jaxws:properties>
+            <entry key="schema-validation-enabled" value="true" />
+        </jaxws:properties>
+    </jaxws:endpoint>
 
 </beans>
